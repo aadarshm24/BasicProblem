@@ -13,14 +13,40 @@
 using namespace std;
 int main()
 {   
-    int num,rem,ans;
+    int num,sum=0,digit=0,rem;
     cout<<"Enter number: ";
     cin>>num;
+    // finding number of digits in number
+    int orignal=num;
     while(num>0)
     {
-        rem = num%10;
-
+        num/=10;
+        digit++;
     }
+    cout<<digit<<endl;
 
+    num =orignal;
+    // caluclating the sum 
+    while(num!=0)
+    {
+        rem=num%10;
+        sum = sum+pow(rem,digit);
+        num/=10;
+    }
+    if(orignal==sum)
+    {
+        cout<<"Armstrong";
+    }
+    else
+    {
+        cout << "Not a Armstrong";
+    }
     return 0;
 }
+
+/*
+1. prserve orignal number
+2. finding digit in number 
+3. finding sum of each number to the power of digit 
+4. check the sum is equal to the num
+*/
